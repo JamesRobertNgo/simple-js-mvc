@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/JamesRobertNgo/simple-js-mvc#readme",
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-csso": "^3.0.0",
-    "gulp-less": "^3.3.2",
-    "gulp-pug": "^3.3.0"
-  }
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-jsbeautify": "^0.1.1",
+    "gulp-remove-code": "^1.0.2"
+  },
+  "dependencies": {}
 }
