@@ -1,17 +1,18 @@
+/* global jrn */
 /* exported Eventful */
 
 /** Super class for objects with event management. */
-class Eventful {
+jrn.Eventful = class {
 
 	/** Initialize with required properties and methods. */
 	constructor() {
 	
 		// Add properties.
-		Eventful.extend(this);
+		jrn.Eventful.extend(this);
 	}
-}
+};
 
-Eventful.extend = (eventfulObject) => {
+jrn.Eventful.extend = (eventfulObject) => {
 	
 	// removeIf(production)
 	// Check for requirements.
@@ -210,13 +211,13 @@ Eventful.extend = (eventfulObject) => {
 	});
 };
 
-Eventful.reservedPropertyNames = ['addEventHandler', 'addEventHandlers', 'removeEventHandler', 'removeEventHandlers', 'triggerEvent', 'triggerEvents'];
+jrn.Eventful.reservedPropertyNames = ['addEventHandler', 'addEventHandlers', 'removeEventHandler', 'removeEventHandlers', 'triggerEvent', 'triggerEvents'];
 
-/* global Eventful */
+/* global jrn */
 /* exported Model */
 
 /** Model represents data. */
-class Model extends Eventful {
+jrn.Model = class extends jrn.Eventful {
 
 	/**
 	 * Initialize Model instance.
@@ -226,16 +227,16 @@ class Model extends Eventful {
 		super();
 		
 		// Add properties.
-		Model.extend(this);
+		jrn.Model.extend(this);
 		
 		// Add initial properties.
 		for (const k in initialProperties) {
 			this.addManagedProperty(k, initialProperties[k]);
 		}
 	}
-}
+};
 
-Model.extend = (modelObject) => {
+jrn.Model.extend = (modelObject) => {
 	// removeIf(production)
 	// Check for requirements.
 	const throwMessagePrefix = 'Model class. extend(modelObject) class method.';
@@ -262,7 +263,7 @@ Model.extend = (modelObject) => {
 			if (!propertyName || typeof propertyName !== 'string') {
 				throw `${throwMessagePrefix} Argument 'propertyName' cannot be null nor undefined, and must be of type string.`;
 			}
-			if (Model.reservedPropertyNames.indexOf(propertyName) != -1) {
+			if (jrn.Model.reservedPropertyNames.indexOf(propertyName) != -1) {
 				throw `${throwMessagePrefix} The value for the argument 'propertyName' is a reserved property name.`;
 			}
 			// endRemoveIf(production)
@@ -356,7 +357,7 @@ Model.extend = (modelObject) => {
 			if (!propertyName || typeof propertyName !== 'string') {
 				throw `${throwMessagePrefix} Argument 'propertyName' cannot be null nor undefined, and must be of type string.`;
 			}
-			if (Model.reservedPropertyNames.indexOf(propertyName) != -1) {
+			if (jrn.Model.reservedPropertyNames.indexOf(propertyName) != -1) {
 				throw `${throwMessagePrefix} The value for the argument 'propertyName' is a reserved property name.`;
 			}
 			// endRemoveIf(production)
@@ -380,7 +381,7 @@ Model.extend = (modelObject) => {
 	});
 };
 
-Model.reservedPropertyNames = Eventful.concat(['addManagedProperty', 'clearProperties', 'removeManagedProperty']);
+jrn.Model.reservedPropertyNames = jrn.Eventful.concat(['addManagedProperty', 'clearProperties', 'removeManagedProperty']);
 
 
 /* global document, Eventful, HTMLElement Model */

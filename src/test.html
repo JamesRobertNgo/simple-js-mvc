@@ -2,4 +2,26 @@
 
 <head></head>
 
+<body>
+<script>
+console.log(new Date('2017-11-27T00:00:00.000-04:00'));
+console.log(new Date('2017-11-27T00:00:00.000-05:00'));
+console.log(new Date('2017-11-27T00:00:00.000-00:00'));
+console.log(new Date('2017-11-27'));
+console.log(new Date('2017/11/27'));
+console.log(new Date(2017, 10, 27));
+
+
+
+var thedate = '2017-11-27';
+var thedateparts = thedate.split('-');
+var year  = parseInt(thedateparts[0]);
+var month = parseInt(thedateparts[1]) - 1;
+var day   = parseInt(thedateparts[2]);
+console.log('final', new Date(year, month, day));
+
+
+</script>
+</body>
+
 </html >

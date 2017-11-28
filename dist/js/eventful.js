@@ -1,18 +1,17 @@
-/* global jrn */
 /* exported Eventful */
 
 /** Super class for objects with event management. */
-jrn.Eventful = class {
+class Eventful {
 
 	/** Initialize with required properties and methods. */
 	constructor() {
 	
 		// Add properties.
-		jrn.Eventful.extend(this);
+		Eventful.extend(this);
 	}
-};
+}
 
-jrn.Eventful.extend = (eventfulObject) => {
+Eventful.extend = (eventfulObject) => {
 	
 	// removeIf(production)
 	// Check for requirements.
@@ -211,4 +210,4 @@ jrn.Eventful.extend = (eventfulObject) => {
 	});
 };
 
-jrn.Eventful.reservedPropertyNames = ['addEventHandler', 'addEventHandlers', 'removeEventHandler', 'removeEventHandlers', 'triggerEvent', 'triggerEvents'];
+Eventful.reservedPropertyNames = ['addEventHandler', 'addEventHandlers', 'removeEventHandler', 'removeEventHandlers', 'triggerEvent', 'triggerEvents'];

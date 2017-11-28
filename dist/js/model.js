@@ -1,8 +1,8 @@
-/* global jrn */
+/* global Eventful */
 /* exported Model */
 
 /** Model represents data. */
-jrn.Model = class extends jrn.Eventful {
+class Model extends Eventful {
 
 	/**
 	 * Initialize Model instance.
@@ -12,16 +12,16 @@ jrn.Model = class extends jrn.Eventful {
 		super();
 		
 		// Add properties.
-		jrn.Model.extend(this);
+		Model.extend(this);
 		
 		// Add initial properties.
 		for (const k in initialProperties) {
 			this.addManagedProperty(k, initialProperties[k]);
 		}
 	}
-};
+}
 
-jrn.Model.extend = (modelObject) => {
+Model.extend = (modelObject) => {
 	// removeIf(production)
 	// Check for requirements.
 	const throwMessagePrefix = 'Model class. extend(modelObject) class method.';
@@ -48,7 +48,7 @@ jrn.Model.extend = (modelObject) => {
 			if (!propertyName || typeof propertyName !== 'string') {
 				throw `${throwMessagePrefix} Argument 'propertyName' cannot be null nor undefined, and must be of type string.`;
 			}
-			if (jrn.Model.reservedPropertyNames.indexOf(propertyName) != -1) {
+			if (Model.reservedPropertyNames.indexOf(propertyName) != -1) {
 				throw `${throwMessagePrefix} The value for the argument 'propertyName' is a reserved property name.`;
 			}
 			// endRemoveIf(production)
@@ -142,7 +142,7 @@ jrn.Model.extend = (modelObject) => {
 			if (!propertyName || typeof propertyName !== 'string') {
 				throw `${throwMessagePrefix} Argument 'propertyName' cannot be null nor undefined, and must be of type string.`;
 			}
-			if (jrn.Model.reservedPropertyNames.indexOf(propertyName) != -1) {
+			if (Model.reservedPropertyNames.indexOf(propertyName) != -1) {
 				throw `${throwMessagePrefix} The value for the argument 'propertyName' is a reserved property name.`;
 			}
 			// endRemoveIf(production)
@@ -166,5 +166,5 @@ jrn.Model.extend = (modelObject) => {
 	});
 };
 
-jrn.Model.reservedPropertyNames = jrn.Eventful.concat(['addManagedProperty', 'clearProperties', 'removeManagedProperty']);
+Model.reservedPropertyNames = Eventful.concat(['addManagedProperty', 'clearProperties', 'removeManagedProperty']);
 
